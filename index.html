@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>쉽게 배우는 음악 이론</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>쉽게 배우는 음악 이론</h1>
+        <nav>
+            <ul>
+                <div class="left-menu">
+                    <li><a href="#guitar">기타 입문</a></li>
+                    <li><a href="#basic">기초 이론</a></li>
+                    <li><a href="#chord">코드 이론</a></li>
+                    <li><a href="#chord-analysis">코드 분석</a></li>
+                </div>
+                <div class="right-menu">
+                    <li><button onclick="window.print()" class="print-button">프린트</button></li>
+                    <li><a href="fretboard.html" class="fretboard-button">기타지판의 이해</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="guitar">
+            <h2>기타 입문</h2>
+            <div class="card">
+                <h3>초보자를 위한 조언</h3>
+                <ul>
+                    <li>천천히, 정확하게 연습하기</li>
+                    <li>기본기를 충실히 다지기</li>
+                    <li>지판의 음계 이해하기</li>
+                    <li>규칙적인 연습 습관 만들기</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>기타 지판 음 배치</h3>
+                <div class="fretboard-info">
+                    <ul>
+                        <li>세로줄: 프렛(Fret) 위치 (0-12번)</li>
+                        <li>가로줄: 기타 줄 (위에서부터 1~6번 현)</li>
+                        <li>색상별로 구분된 음계: E, F, G, A, B, C, D</li>
+                        <li>주요 프렛 포지션: 3, 5, 7, 9, 12번</li>
+                    </ul>
+                </div>
+                <div class="fretboard-container">
+                    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcdEcaD%2FbtqDxvPH2CM%2F6kgVRKcQ5xBCrFmKII4WZ1%2Fimg.jpg" alt="기타 프렛보드" class="fretboard-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="basic">
+            <h2>음악 이론</h2>
+            <div class="card">
+                <h3>음계(Scale) 이해하기</h3>
+                <ul>
+                    <li>기본 음계: C D E F G A B</li>
+                    <li>반음 포함: C C# D D# E F F# G G# A A# B</li>
+                    <li>총 12개의 음으로 구성</li>
+                </ul>
+                
+                <div class="piano-keyboard">
+                    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcqr8pn%2FbtsKnEsdoUC%2FKgVTXkWUJKGyU7qWvfPHV1%2Fimg.png" 
+                         alt="피아노 건반" 
+                         class="piano-image">
+                </div>
+
+                <ul class="piano-notes-info">
+                    <li>흰 건반: 기본 음계 (C D E F G A B)</li>
+                    <li>검은 건반: 반음 (#, ♭)</li>
+                    <li>C#과 D♭은 같은 음 (이명동음) D#=Eb, F#=Gb, G#=Ab, A#=Bb</li>
+                    <li>E와 F, B와 C 사이에는 검은 건반이 없음 (반음 관계)</li>
+                    <li>E#=F, B#=C,  Fb=E, Cb=B  ===> 주의!! E#,B#,Fb,Cb 표기는 하지않는다 !!/li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>조표(Key Signature) 이해하기</h3>
+                <ul>
+                    <li>조표는 악보의 시작 부분에 표시되는 기호</li>
+                    <li>해당 곡이 어떠한 음의 구성음으로 되어 있는지를 알수있음</li>
+                    <li>샵(#)과 플랫(♭)으로 표시</li>
+                </ul>
+
+                <div class="key-signature">
+                    <div class="key-example">
+                        <h4>G Key (샵 계열)</h4>
+                        <div class="scale-notes">
+                            <span>G</span> →
+                            <span>A</span> →
+                            <span>B</span> →
+                            <span>C</span> →
+                            <span>D</span> →
+                            <span>E</span> →
+                            <span class="highlight">F#</span> →
+                            <span>G</span>
+                        </div>
+                        <p class="key-info">특징: F음이 F#으로 변경됨</p>
+                    </div>
+
+                    <div class="key-example">
+                        <h4>F Key (플랫 계열)</h4>
+                        <div class="scale-notes">
+                            <span>F</span> →
+                            <span>G</span> →
+                            <span>A</span> →
+                            <span class="highlight">B♭</span> →
+                            <span>C</span> →
+                            <span>D</span> →
+                            <span>E</span> →
+                            <span>F</span>
+                        </div>
+                        <p class="key-info">특징: B음이 B♭으로 변경됨</p>
+                    </div>
+                </div>
+
+                <div class="key-circle">
+                    <h4>조의 순서</h4>
+                    <div class="sharp-order">
+                        <h5>샵(#) 순서</h5>
+                        <p>F# → C# → G# → D# → A# → E# → B#</p>
+                        <small>("Father Charles Goes Down And Ends Battle")</small>
+                    </div>
+                    <div class="flat-order">
+                        <h5>플랫(♭) 순서</h5>
+                        <p>B♭ → E♭ → A♭ → D♭ → G♭ → C♭ → F♭</p>
+                        <small>("Battle Ends And Down Goes Charles Father")</small>
+                    </div>
+                </div>
+
+                <ul class="key-tips">
+                    
+                    <li>각 조성마다 고유한 샵이나 플랫의 개수를 가짐</li>
+                    <li>조표는 항상 정해진 순서대로 추가됨</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="chord">
+            <h2>코드(화음)의 심화 이해</h2>
+            <div class="card">
+                <h3>코드(화음)의 기본 개념</h3>
+                <ul>
+                    <li>코드는 우리말로 화음을 뜻함</li>
+                    <li>코드(화음)는 두 개 이상의 음이 함께 연주되어 조화로운 소리를 내는 것</li>
+                    <li>단음 + 단음 = 코드(화음)의 기본 원리</li>
+                    <li>기타는 단음과 코드(화음)를 자유자재로 구사할 수 있는 악기</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>코드(화음)의 원리</h3>
+                <ul>
+                    <li>코드(화음)는 아무 음이나 조합해서 만들지 않음</li>
+                    <li>예시: C(도)는 E(미), G(솔)와 잘 어울림</li>
+                    <li>인간의 귀는 특정 헤르츠(Hz)에 반응하여 조화로운 소리를 인식</li>
+                    <li>불협화음도 재즈와 같은 장르에서는 예술적으로 활용됨</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <section class="chord-section">
+                    <h3>7코드(7th chord) ▵7(Major 7th chord)</h3>
+                    
+                    <div class="chord-explanation">
+                        <h4>7코드의 기본 이해</h4>
+                        
+                        <div class="chord-example">
+                            <h5>C7의 구성</h5>
+                            <p>코드해석: 1 3 5 7</p>
+                            <p>구성음: C E G Bb</p>
+                        </div>
+
+                        <div class="chord-example">
+                            <h5>G7의 구성</h5>
+                            <p>코드해석: 1 3 5 7</p>
+                            <p>구성음: G B D F</p>
+                        </div>
+                    </div>
+
+                    <div class="major-seventh">
+                        <h4>메이저 7th (▵7) 이해</h4>
+                        
+                        <div class="chord-example">
+                            <h5>C▵7의 구성</h5>
+                            <p>코드해석: 1 3 5 ▵7</p>
+                            <p>구성음: C E G B</p>
+                            <p class="note">▵7은 1음�� 반음 아래 음을 의미</p>
+                        </div>
+
+                        <div class="chord-example">
+                            <h5>G▵7의 구성</h5>
+                            <p>코드해석: 1 3 5 ▵7</p>
+                            <p>구성음: G B D F#</p>
+                        </div>
+                    </div>
+
+                    <div class="important-notes">
+                        <h4>중요 참고사항</h4>
+                        <ul>
+                            <li><strong>7 ▵7</strong>과 <strong>b7 7</strong>은 같은 의미로 사용됨</li>
+                            <li>문맥에 따라 작성자의 표기 스타일을 파악하는 것이 중요</li>
+                            <li>▵7은 M7로도 표기됨 (예: C▵7 = CM7)</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="chord-analysis">
+            <h2>코드 분석하는 법</h2>
+            <div class="card">
+                <h3>기본 원리</h3>
+                <ul>
+                    <li>코드는 숫자로 해석하는 것이 중요</li>
+                    <li>3도면 메이저코드, 3♭이면 마이너코드</li>
+                    <li>코드의 이름이 바뀌어도 분석 방법은 동일</li>
+                    <li>타 연주자는 숫자로 해석하여 판에 응용</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>주요 코드 종류</h3>
+                <table>
+                    <tr>
+                        <th>종류</th>
+                        <th>표기 예시</th>
+                        <th>읽는 법</th>
+                        <th>구성음</th>
+                    </tr>
+                    <tr>
+                        <td>메이저코드</td>
+                        <td>A</td>
+                        <td>A코드</td>
+                        <td>1 3 5</td>
+                    </tr>
+                    <tr>
+                        <td>마이너코드</td>
+                        <td>Am</td>
+                        <td>A마이너</td>
+                        <td>1 3♭ 5</td>
+                    </tr>
+                    <tr>
+                        <td>서스펜디드4</td>
+                        <td>Asus4</td>
+                        <td>A서스포</td>
+                        <td>1 4 5</td>
+                    </tr>
+                    <tr>
+                        <td>어그먼티드</td>
+                        <td>Aaug</td>
+                        <td>A어그먼트</td>
+                        <td>1 3 5#</td>
+                    </tr>
+                    <tr>
+                        <td>디미니쉬드</td>
+                        <td>Adim, A°, Am7♭5</td>
+                        <td>A디미니쉬</td>
+                        <td>1 3♭ 5♭ 7</td>
+                    </tr>
+                    <tr>
+                        <td>디미니쉬드7</td>
+                        <td>Adim7, A°7</td>
+                        <td>A디미니쉬세븐</td>
+                        <td>1 3♭ 5♭ 6</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>코드 특징</h3>
+                <ul>
+                    <li>메이저코드는 별도 표기 없음 (예: A)</li>
+                    <li>마이너코드는 소문자 m으로 표기 (예: Am)</li>
+                    <li>sus4는 3도 대신 4도를 사용</li>
+                    <li>aug는 5도를 반음 올림</li>
+                    <li>dim은 3도와 5도를 반음 내리고 7음 추가 (m7♭5와 동일)</li>
+                    <li>dim7은 3도, 5도, 7음을 반음 내림 (실제로는 6도)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 

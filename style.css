@@ -1,0 +1,921 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* 왼쪽 메뉴 그룹 */
+.left-menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* 오른쪽 메뉴 그룹 */
+.right-menu {
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    margin: 5px;
+}
+
+nav a, .print-button, .fretboard-button {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: white;
+    background-color: #34495e;
+    border: none;
+    cursor: pointer;
+}
+
+nav a[href="#guitar"] {
+    background-color: #e74c3c;
+}
+
+nav a[href="#basic"] {
+    background-color: #3498db;
+}
+
+nav a[href="#chord"] {
+    background-color: #2ecc71;
+}
+
+nav a[href="#chord-analysis"] {
+    background-color: #f1c40f;
+}
+
+.print-button {
+    background-color: #9b59b6;
+}
+
+.fretboard-button {
+    background-color: #e67e22;
+}
+
+nav a:hover, .print-button:hover, .fretboard-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    nav a, .print-button, .fretboard-button {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media print {
+    nav {
+        display: none;
+    }
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-position: inside;
+    margin-left: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+}
+
+.piano-keyboard {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.piano-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.white-key {
+    width: 60px;
+    height: 180px;
+    background: white;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.black-key {
+    width: 40px;
+    height: 120px;
+    background: white;
+    border: 1px solid #000;
+    position: absolute;
+    margin-left: -20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+}
+
+.white-key span, .black-key span {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.piano-notes-info {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.piano-notes-info li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.key-signature {
+    margin: 1.8rem 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.key-example {
+    margin: 1.35rem 0;
+}
+
+.scale-notes {
+    margin: 0.9rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+}
+
+.scale-notes span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.scale-notes .highlight {
+    color: #ee2323;
+    font-weight: bold;
+}
+
+.key-info {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.key-circle {
+    margin: 1.8rem 0;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.sharp-order, .flat-order {
+    margin: 0.9rem 0;
+}
+
+.sharp-order h5, .flat-order h5 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.sharp-order small, .flat-order small {
+    color: #666;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.key-tips {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.key-tips li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.fretboard-container {
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fretboard {
+    background: #d4b895;
+    padding: 15px;
+    border-radius: 4px;
+    border: 2px solid #8b7355;
+}
+
+.string {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #999;
+    padding: 8px 0;
+    position: relative;
+}
+
+.string:last-child {
+    border-bottom: 3px solid #666;
+}
+
+.string span {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 0.9em;
+}
+
+.fret-numbers {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-top: 5px;
+}
+
+.fret-numbers span {
+    width: 35px;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+}
+
+/* 프렛 마커(도트) 표시 */
+.fret-numbers span:nth-child(4),
+.fret-numbers span:nth-child(6),
+.fret-numbers span:nth-child(8),
+.fret-numbers span:nth-child(10),
+.fret-numbers span:nth-child(13) {
+    position: relative;
+}
+
+.fret-numbers span:nth-child(4)::after,
+.fret-numbers span:nth-child(6)::after,
+.fret-numbers span:nth-child(8)::after,
+.fret-numbers span:nth-child(10)::after,
+.fret-numbers span:nth-child(13)::after {
+    content: "•";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666;
+    font-size: 1.5em;
+}
+
+.fretboard-info {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.fretboard-info h4 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.fretboard-info ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    nav a, .print-button, .fretboard-button {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.fretboard-grid {
+    border: 1px solid #000;
+    padding: 20px;
+    background: #fff;
+    margin: 20px 0;
+}
+
+.string {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    border-bottom: 1px solid #000;
+    height: 40px;
+}
+
+.string:last-of-type {
+    border-bottom: 2px solid #000;
+}
+
+.string span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #000;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.empty {
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+/* 음계별 색상 */
+.note.e { color: #7B68EE; }
+.note.f { color: #4169E1; }
+.note.g { color: #3CB371; }
+.note.a { color: #CD5C5C; }
+.note.b { color: #DA70D6; }
+.note.c { color: #90EE90; }
+.note.d { color: #DAA520; }
+
+.fret-numbers {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    margin-top: 10px;
+    text-align: center;
+}
+
+.fret-numbers span {
+    font-weight: bold;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .string {
+        height: 30px;
+    }
+    
+    .string span {
+        font-size: 0.8em;
+    }
+}
+
+.fretboard-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.fretboard-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.fretboard-info ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .fretboard-container {
+        padding: 5px;
+    }
+    
+    .fretboard-image {
+        max-width: 100%;
+    }
+}
+
+/* 프린트용 스타일 */
+@media print {
+    /* 프린트시 숨길 요소들 */
+    header,
+    nav,
+    .print-button,
+    .no-print {
+        display: none !important;
+    }
+
+    /* A4 용지 설정 */
+    @page {
+        size: A4;
+        margin: 2cm;
+    }
+
+    body {
+        background: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 섹션 페이지 나누기 설정 */
+    section {
+        page-break-before: always;
+        margin-bottom: 2em;
+        padding-top: 2em;
+    }
+
+    section:first-of-type {
+        page-break-before: avoid;
+    }
+
+    /* 제목 설정 */
+    h1 {
+        font-size: 24pt;
+        margin-bottom: 2em;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 18pt;
+        margin-bottom: 1em;
+        page-break-after: avoid;
+    }
+
+    h3 {
+        font-size: 14pt;
+        page-break-after: avoid;
+    }
+
+    /* 텍스트 설정 */
+    p, li {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    /* 이미지 설정 */
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+
+    /* 테이블 설정 */
+    table {
+        page-break-inside: avoid;
+        font-size: 10pt;
+    }
+
+    /* 카드 스타일 수정 */
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+
+    /* 피아노 키보드 설정 */
+    .piano-keyboard {
+        page-break-inside: avoid;
+        transform: none;
+        margin: 2em 0;
+    }
+
+    /* 프렛보드 설정 */
+    .fretboard-container {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+
+    /* 링크 URL 표시 */
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666;
+    }
+
+    /* 피아노 건반 프린트 설정 */
+    .piano-keyboard {
+        border: 1px solid #000;
+        page-break-inside: avoid;
+    }
+
+    .white-key {
+        border: 1px solid #000;
+        background: #fff;
+        color: #000;
+    }
+
+    .black-key {
+        background: #fff; /* 흰색 배경으로 변경 */
+        border: 2px solid #000; /* 진한 테두리 추가 */
+        color: #000; /* 텍스트 색상 검정으로 */
+        position: absolute;
+        /* 기존 스타일 유지 */
+    }
+
+    /* 검은 건반임을 표시하기 위한 패턴 추가 */
+    .black-key::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(
+            45deg,
+            #000,
+            #000 2px,
+            #fff 2px,
+            #fff 4px
+        );
+        opacity: 0.7;
+    }
+
+    /* 검은 건반의 텍스트가 패턴 위에 잘 보이도록 */
+    .black-key span {
+        position: relative;
+        z-index: 1;
+        background: #fff;
+        padding: 2px;
+    }
+}
+
+/* 프린트 버튼 스타일 */
+.print-button {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.print-button:hover {
+    background: #0056b3;
+}
+
+.chord-section {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chord-explanation, .major-seventh, .important-notes {
+    margin: 1.8rem 0;
+}
+
+.chord-example {
+    background: #f8f9fa;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+}
+
+.chord-example h4 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.note {
+    color: #666;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.important-notes ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.important-notes li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.important-notes li:before {
+    content: "•";
+    color: #007bff;
+    position: absolute;
+    left: 0;
+}
+
+/* 프렛보드 페이지 스타일 */
+.fretboard-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.fretboard-button:hover {
+    background-color: #45a049;
+}
+
+.string-notes {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.string-notes th, .string-notes td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.string-notes th {
+    background-color: #f5f5f5;
+}
+
+.fretboard-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.fretboard-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.fretboard-explanation {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* 도수(계명) 섹션 스타일 */
+blockquote {
+    background: #f9f9f9;
+    border-left: 4px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-style: italic;
+}
+
+.note-table {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.note-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.note-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    min-width: 40px;
+}
+
+.fretboard-images {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.fretboard-image {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.card ul {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.card li {
+    margin: 8px 0;
+}
+
+/* 프린트 스타일 최적화 */
+@media print {
+    /* 페이지 여백 최소화 */
+    @page {
+        margin: 0.5cm;
+        size: auto;
+    }
+
+    /* 본문 여백 최소화 */
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 0 !important;
+    }
+
+    /* 컨테이너 최적화 */
+    main {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    /* 마지막 섹션 여백 제거 */
+    section:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    /* 마지막 카드 여백 제거 */
+    .card:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    /* 테이블 최적화 */
+    table {
+        page-break-inside: avoid;
+        margin-bottom: 10px;
+    }
+
+    /* 불필���한 요소 숨기기 */
+    footer, 
+    .no-print {
+        display: none !important;
+    }
+
+    /* 강제로 페이지 끝에서 잘리지 않도록 설정 */
+    * {
+        overflow: visible !important;
+    }
+
+    .fretboard-images {
+        gap: 2px;
+    }
+
+    .fretboard-image {
+        max-width: 85%;
+        page-break-inside: avoid;
+    }
+
+    .fretboard-guide {
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    .card {
+        margin: 5px 0;
+        padding: 5px;
+    }
+}
+
+/* 네비게이션 컨테이너 스타일 */
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* 왼쪽 메뉴 그룹 */
+.left-menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* 오른쪽 메뉴 그룹 */
+.right-menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* HTML 구조 수정 */

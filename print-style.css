@@ -1,0 +1,96 @@
+/* 화면 보기용 스타일 */
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.print-container {
+    max-width: 21cm;
+    margin: 0 auto;
+    background: white;
+    padding: 2cm;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.print-header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.print-button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+/* 프린트용 스타일 */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+
+    .print-container {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .print-button {
+        display: none;
+    }
+
+    @page {
+        size: A4;
+        margin: 2cm;
+    }
+
+    section {
+        page-break-before: always;
+    }
+
+    h2 {
+        page-break-after: avoid;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    table {
+        font-size: 10pt;
+        page-break-inside: avoid;
+    }
+}
+
+/* 기존 CSS에 추가 */
+.print-content {
+    margin-top: 2em;
+}
+
+/* 프린트 시 숨길 요소들 */
+@media print {
+    .no-print,
+    nav,
+    .navigation,
+    .print-button {
+        display: none !important;
+    }
+    
+    /* 섹션 간격 조정 */
+    section {
+        margin-bottom: 2em;
+        page-break-inside: avoid;
+    }
+    
+    /* 이미지 관련 */
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+} 
